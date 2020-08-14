@@ -18,6 +18,7 @@ import { WebSocketLink } from 'apollo-link-ws'
 import { getMainDefinition } from 'apollo-utilities'
 
 
+//bypasses CORS
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 const httpLink = createHttpLink({
   uri: proxyurl + 'https://hackernews-clone-carvin.herokuapp.com/graphql/'
@@ -36,7 +37,7 @@ const authLink = setContext((_, { headers }) => {
 
 
 const wsLink = new WebSocketLink({
-  uri: `ws://hackernews-clone-carvin.herokuapp.com/graphql/`,
+  uri: `wss://hackernews-clone-carvin.herokuapp.com/graphql/`,
   options: {
     reconnect: true,
     connectionParams: {
