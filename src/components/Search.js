@@ -33,10 +33,15 @@ const Search = (props) => {
 
   const executeSearch = async () => {
     const search = filter
-    const result = await props.client.query({
-      query: SEARCH_QUERY,
-      variables: { search },
-    })
+
+    try {
+      const result = await props.client.query({
+        query: SEARCH_QUERY,
+        variables: { search },
+      })
+    } catch (e) {
+      console.log(e.message)
+    }
 
     const filteredLinks = result.data.links
     setLinks(filteredLinks)
