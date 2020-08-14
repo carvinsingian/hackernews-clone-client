@@ -139,11 +139,9 @@ class LinkList extends Component {
 
 
   _subscribeToNewLinks = subscribeToMore => {
-    console.log("going in")
     subscribeToMore({
       document: NEW_LINK_SUBSCRIPTION,
       updateQuery: (prev, { subscriptionData }) => {
-        console.log('subscription');
         if (!subscriptionData.data) return prev
         const newLink = subscriptionData.data.newLink
         const exists = prev.links.find(({ id }) => id === newLink.id)
