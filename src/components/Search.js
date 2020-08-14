@@ -39,12 +39,13 @@ const Search = (props) => {
         query: SEARCH_QUERY,
         variables: { search },
       })
+
+      const filteredLinks = result.data.links
+      setLinks(filteredLinks)
+
     } catch (e) {
       console.log(e.message)
     }
-
-    const filteredLinks = result.data.links
-    setLinks(filteredLinks)
   }
 
   return (
