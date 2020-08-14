@@ -18,9 +18,9 @@ import { WebSocketLink } from 'apollo-link-ws'
 import { getMainDefinition } from 'apollo-utilities'
 
 
-
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
 const httpLink = createHttpLink({
-  uri: 'https://hackernews-clone-carvin.herokuapp.com/graphql/'
+  uri: proxyurl + 'https://hackernews-clone-carvin.herokuapp.com/graphql/'
 })
 
 
